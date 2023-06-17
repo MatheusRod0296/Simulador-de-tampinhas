@@ -89,7 +89,8 @@ button {
     width: 60px;   
     cursor: pointer;
     margin-left: 10px;   
-    margin-top: 5px;         
+    margin-top: 5px;
+    border-radius: 50%;       
 }
 
 .square-sorteio{
@@ -99,6 +100,7 @@ button {
     width: 100px;                   
     margin-left: 10px;   
     margin-top: 5px !important; 
+    border-radius: 50%;
 }
 
 .div_square_sorteio{
@@ -120,6 +122,7 @@ button {
     margin-top: 5px !important; 
     margin-bottom: 5px !important; 
     display: inline-block;
+    border-radius: 50%;
 }
 
 .div-cores{
@@ -165,6 +168,7 @@ button {
     height: 60px;
     width: 60px;    
     border: 2px black solid;
+    border-radius: 50%;
   }
   
   /* On mouse-over, add a grey background color */
@@ -200,6 +204,7 @@ button {
     -webkit-transform: rotate(35deg);
     -ms-transform: rotate(35deg);
     transform: rotate(35deg);
+    margin: 20%;
   }
 
   .container .chk-black:after {

@@ -16,49 +16,12 @@ $(document).ready(function(){
         showQuantidade();
         showQuantidade();
         
-      });
-
-    function calcularQuantidadeTimes(){
-        QtdJogadoresPorTime = $("#qtdJogadoresPorTime").val();           
-
-        if(QtdJogadoresPorTime > 0 && TotalJogadores > 0){
-            JogadoresQueSobraram = TotalJogadores % QtdJogadoresPorTime;
-
-            var resultadoDivisao = TotalJogadores / QtdJogadoresPorTime;
-    
-            var resultado = Math.trunc(resultadoDivisao);
-            
-            if(JogadoresQueSobraram > 0 ){
-                resultado++;
-            }        
-            
-            if(resultado > 9){
-                alert("Quantidade de times nao pode ultapassar 9!");
-                return;
-            }
-            
-            QtdTimes = resultado;           
-        } 
-    }
-
-    function showQuantidade(){
-        $("#lbl_selecione").empty();
-        $("#lbl_selecione").prepend("Selecione "+ QtdTimes + " times:");
-    }
-
-    function reset(){
-        $('input[type=checkbox]').prop('checked',false);
-        $("#list-vagas").empty();
-        $("#div_status").empty();
-        $("#div_cor_sorteada").css("background-color", "white");
-        VagasPorCores = [];
-        CoresEscolhidas = [];
-        soretioCount = 0;
-    }
+      });    
         
     $("input[name='chk']").on('change', function(evt) { 
         if ($('input[type=checkbox]:checked').length > QtdTimes) {
             $(this).prop('checked', false);
+
             alert("apenas:  "+ QtdTimes);
         }else {
            if($(this).prop('checked')){              
@@ -106,7 +69,45 @@ $(document).ready(function(){
             atualizaVagasOcupadas(VagasPorCores[index]);           
         }                   
             
-    });  
+    }); 
+    
+    function calcularQuantidadeTimes(){
+        QtdJogadoresPorTime = $("#qtdJogadoresPorTime").val();           
+
+        if(QtdJogadoresPorTime > 0 && TotalJogadores > 0){
+            JogadoresQueSobraram = TotalJogadores % QtdJogadoresPorTime;
+
+            var resultadoDivisao = TotalJogadores / QtdJogadoresPorTime;
+    
+            var resultado = Math.trunc(resultadoDivisao);
+            
+            if(JogadoresQueSobraram > 0 ){
+                resultado++;
+            }        
+            
+            if(resultado > 9){
+                alert("Quantidade de times nao pode ultapassar 9!");
+                return;
+            }
+            
+            QtdTimes = resultado;           
+        } 
+    }
+
+    function showQuantidade(){
+        $("#lbl_selecione").empty();
+        $("#lbl_selecione").prepend("Selecione "+ QtdTimes + " times:");
+    }
+
+    function reset(){
+        $('input[type=checkbox]').prop('checked',false);
+        $("#list-vagas").empty();
+        $("#div_status").empty();
+        $("#div_cor_sorteada").css("background-color", "white");
+        VagasPorCores = [];
+        CoresEscolhidas = [];
+        soretioCount = 0;
+    }
 
     function verificarTimeDisponivel(sort){
         if(VagasPorCores[sort].vagasOcupadas < VagasPorCores[sort].vagas){
@@ -143,7 +144,6 @@ $(document).ready(function(){
     function atualizaVagasOcupadas(vagas){
         $("#li_"+ vagas.cor).empty();
         $("#li_"+ vagas.cor).append("Vagas:  " +vagas.vagasOcupadas+"/" +vagas.vagas);
-    }
-    
+    }    
 });
 
