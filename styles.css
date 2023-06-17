@@ -1,0 +1,218 @@
+body {  
+    width: 300px;
+    align-items: center;
+    background-color: rgb(44, 46, 46) !important;
+    margin: 0 auto !important;
+    margin-top: 50px !important;
+}
+
+.color-white{
+    color: white;
+}
+
+.color-black{
+    color: rgb(0, 0, 0);
+}
+
+label {
+    width: 300px;
+    display: block;
+}
+
+input {
+    width: 300px;  
+    margin-bottom: 20px !important;          
+}
+
+button {
+    margin-bottom: 20px;
+    width: 300px;
+}
+
+.check {
+    
+    width: 20px;
+    height: 20px;
+   
+    margin-top: 20px;
+
+}
+
+.verde {
+    background-color: green !important;
+    accent-color: green;
+}
+
+.azul {
+    background-color: blue !important;
+    accent-color: blue;
+}
+
+.amarelo {
+    background-color: yellow !important;
+    accent-color: yellow;
+}
+
+.vermelho {
+    background-color: red !important;
+    accent-color: red;
+}
+
+
+.laranja {
+    background-color: orange !important;
+    accent-color: orange;
+}
+
+.preto {
+    background-color: black !important;
+    accent-color: black;
+}
+
+.rosa {
+    background-color: pink !important;
+    accent-color: pink;
+}
+
+.roxo {
+    background-color: purple !important;
+    accent-color: purple;
+}
+
+.greenyellow {
+    background-color: greenyellow !important;
+    accent-color: greenyellow;
+}
+
+.square {
+    height: 60px;
+    width: 60px;   
+    cursor: pointer;
+    margin-left: 10px;   
+    margin-top: 5px;         
+}
+
+.square-sorteio{
+    background-color: white;
+    margin: 0 auto !important;
+    height: 100px;
+    width: 100px;                   
+    margin-left: 10px;   
+    margin-top: 5px !important; 
+}
+
+.div_square_sorteio{
+    height: 120px
+}
+
+.status{
+    border: solid;    
+    margin-top: 20px !important;
+    min-height: 30px;    
+    width: 300px;
+}
+
+.square-status{      
+    background-color: white;
+    height: 20px;
+    width: 20px;                   
+    margin-left: 10px;   
+    margin-top: 5px !important; 
+    margin-bottom: 5px !important; 
+    display: inline flow-root list-item;
+}
+
+.div-cores{
+    display: inline-flex;
+    margin-bottom: 50px;
+}
+
+.vagas {
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+.row_status{    
+    margin-top: 10px;
+}
+
+
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 60px;    
+    border: 2px black solid;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    /* background-color: green; */
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    /* background-color: green; */
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 12px;
+    top: 6px;
+    width: 10px;
+    height: 16px;
+    border: solid rgb(255, 255, 255);
+    border-width: 0 4px 4px 0;
+    -webkit-transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    transform: rotate(35deg);
+  }
+
+  .container .chk-black:after {
+    left: 12px;
+    top: 6px;
+    width: 10px;
+    height: 16px;
+    border: solid rgb(15, 14, 14);
+    border-width: 0 4px 4px 0;
+    -webkit-transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    transform: rotate(35deg);
+  }
+
