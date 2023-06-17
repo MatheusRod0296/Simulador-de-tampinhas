@@ -64,8 +64,7 @@ $(document).ready(function(){
            if($(this).prop('checked')){              
                 CoresEscolhidas.push(this.attributes["data"].value);
            }else{
-               var index = CoresEscolhidas.indexOf(this.attributes["data"].value);
-               CoresEscolhidas.splice(index, 1);
+               reset();               
            }           
         }
 
@@ -131,7 +130,7 @@ $(document).ready(function(){
         $("#div_status").prepend("<div class='square-status' style='background-color: "+cor+"'></div>");       
     } 
 
-    function mostrarOrdemDosTimes(){   
+    function mostrarOrdemDosTimes(){
         VagasPorCores.forEach(element => {
             if(element.cor == "yellow" || element.cor == "pink" || element.cor == "orange" || element.cor == "greenyellow"){
                 $("#list-vagas").append('<li id="li_'+ element.cor +'" class="list-group-item row_status color-black" style="background-color: '+element.cor+'">Vagas:  0/'+element.vagas+'</li>');
