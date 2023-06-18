@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width,  initial-scale=1.0">
-        <title>Sorteio Equipes</title>       
+        <title>Simulador de tampinhas</title>       
         
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -14,57 +14,56 @@
     </head>
 
     <body>
-        <label class="color-white">Quantos jogadores por time?</label>
-        <input type="number" id="qtdJogadoresPorTime">
+        <label class="text-white">Total de jogadores?</label>
+        <input type="number" id="players">
 
-        <label class="color-white">Total de jogadores</label>
-        <input type="number" id="totalJogadores">
+        <label class="text-white">Quantos jogadores por time?</label>
+        <input type="number" id="playersPerTeam">       
 
-        <button type="button" class="btn btn-light" id="calcular">Calcular número de times</button>       
+        <button type="button" class="btn btn-light" id="calculate">Calcular número de times</button>       
  
-
-        <label id="lbl_selecione" class="color-white" for="colors"></label>     
+        <label id="lbl_select" class="text-white"></label>     
         
-        <div class="div-cores text-center">
+        <div class="colors">
             <div class="row">
               <div class="col">
-                <label class="container square verde" for="cb_verde">               
-                    <input name="chk"  id="cb_verde" type="checkbox" class="check verde" data="green">
+                <label class="cap green" for="cap_green">               
+                    <input name="chk"  id="cap_green" type="checkbox" data="green">
                     <span class="checkmark"></span>
-                </label>  
-
+                </label>
               
               </div>
               <div class="col">
-                <label class="container square azul" for="cb_azul">
-                    <input name="chk" id="cb_azul" type="checkbox" class="check azul" data="blue">
+                <label class="cap blue" for="cap_blue">
+                    <input name="chk" id="cap_blue" type="checkbox" data="blue">
                     <span class="checkmark"></span>
                 </label> 
               </div>
               <div class="col">
-                <label  class="container square amarelo" for="cb_amarelo">
-                    <input name="chk" type="checkbox" class="check amarelo" id="cb_amarelo" data="yellow">
-                    <span class="chk-black  checkmark"></span>
+                <label class="cap pink" for="cap_pink">
+                    <input name="chk" type="checkbox" id="cap_pink" data="pink">   
+                    <span class="checkmark chk-black"></span>                     
                 </label> 
-              </div>
+            </div>
+             
             </div>
 
             <div class="row">               
                 <div class="col">
-                    <label class="container square vermelho" for="cb_vermelho">
-                        <input name="chk" type="checkbox" class="check vermelho" id="cb_vermelho" data="red"> 
+                    <label class="cap red" for="cap_red">
+                        <input name="chk" type="checkbox" id="cap_red" data="red"> 
                         <span class="checkmark"></span>
                     </label> 
                 </div>
                 <div class="col">
-                    <label class="container square laranja" for="cb_laranja">
-                        <input name="chk" type="checkbox" class="check laranja" id="cb_laranja" data="orange">   
-                        <span class="checkmark"></span>                     
+                    <label  class="cap yellow" for="cap_yellow">
+                        <input name="chk" type="checkbox" id="cap_yellow" data="yellow">
+                        <span class="checkmark chk-black"></span>
                     </label> 
-                </div>
+                  </div>                
                 <div class="col">
-                    <label class="container square preto" for="cb_preto">
-                        <input name="chk" type="checkbox" class="check preto" id="cb_preto" data="black">   
+                    <label class="cap purple" for="cap_purple">
+                        <input name="chk" type="checkbox" id="cap_purple" data="purple">   
                         <span class="checkmark"></span>                    
                     </label>  
                 </div>
@@ -72,43 +71,39 @@
 
               <div class="row">
                 <div class="col">
-                    <label class="container square rosa" for="cb_rosa">
-                        <input name="chk" type="checkbox" class="check rosa" id="cb_rosa" data="pink">   
-                        <span class="chk-black checkmark"></span>                    
+                    <label class="cap orange" for="cap_orange">
+                        <input name="chk" type="checkbox" id="cap_orange" data="orange">   
+                        <span class="checkmark chk-black"></span>                    
                     </label>
                 </div>
                 <div class="col">
-                    <label class="container square roxo" for="cb_roxo">
-                        <input name="chk" type="checkbox" class="check roxo" id="cb_roxo" data="purple">
+                    <label class="cap black" for="cap_black">
+                        <input name="chk" type="checkbox" id="cap_black" data="black">
                         <span class="checkmark"></span>                       
                     </label>
                 </div>
                 <div class="col">
-                    <label class="container square greenyellow" for="cb_greenyellow">
-                        <input name="chk" type="checkbox" class="check greenyellow" id="cb_greenyellow" data="greenyellow">   
-                        <span class="chk-black checkmark"></span>                    
+                    <label class="cap greenyellow" for="cap_greenyellow">
+                        <input name="chk" type="checkbox" id="cap_greenyellow" data="greenyellow">   
+                        <span class="checkmark chk-black"></span>                    
                     </label>
                 </div>
               </div>
         </div>
           
-       <button type="button" class="btn btn-light" id="btn_sortear">sortear</button>
+       <button type="button" class="btn btn-light" id="btn_sort">Sortear</button>
        
-       <div class="div_square_sorteio">
-            <div id="div_cor_sorteada" class="square-sorteio"></div> 
+       <div class="sort_result">
+            <div id="sorted_color"></div> 
         </div>  
        
-       <div id="div_status" class="status"></div>
+       <div id="status" class="status"></div>
         
-       <div class="vagas">
-            <ul id="list-vagas" class="list-group list-group-numbered"> </ul>
+       <div class="spots">
+            <ul id="list-spots" class="list-group list-group-numbered"> </ul>
        </div>
       
     </div>
 
-    </body>
-
-    <footer>
-
-    </footer>
+    </body>   
 </html>

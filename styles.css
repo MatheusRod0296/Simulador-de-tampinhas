@@ -6,11 +6,11 @@ body {
     margin-top: 50px !important;
 }
 
-.color-white{
+.text-white{
     color: white;
 }
 
-.color-black{
+.text-black{
     color: rgb(0, 0, 0);
 }
 
@@ -29,82 +29,18 @@ button {
     width: 300px;
 }
 
-.check {
-    
-    width: 20px;
-    height: 20px;
-   
-    margin-top: 20px;
-
+.sort_result{
+    height: 120px;   
 }
 
-.verde {
-    background-color: green !important;
-    accent-color: green;
-}
-
-.azul {
-    background-color: blue !important;
-    accent-color: blue;
-}
-
-.amarelo {
-    background-color: yellow !important;
-    accent-color: yellow;
-}
-
-.vermelho {
-    background-color: red !important;
-    accent-color: red;
-}
-
-
-.laranja {
-    background-color: orange !important;
-    accent-color: orange;
-}
-
-.preto {
-    background-color: black !important;
-    accent-color: black;
-}
-
-.rosa {
-    background-color: pink !important;
-    accent-color: pink;
-}
-
-.roxo {
-    background-color: purple !important;
-    accent-color: purple;
-}
-
-.greenyellow {
-    background-color: greenyellow !important;
-    accent-color: greenyellow;
-}
-
-.square {
-    height: 60px;
-    width: 60px;   
-    cursor: pointer;
-    margin-left: 10px;   
-    margin-top: 5px;
-    border-radius: 50%;       
-}
-
-.square-sorteio{
+.sort_result div{    
     background-color: white;
     margin: 0 auto !important;
     height: 100px;
     width: 100px;                   
     margin-left: 10px;   
     margin-top: 5px !important; 
-    border-radius: 50%;
-}
-
-.div_square_sorteio{
-    height: 120px
+    border-radius: 50%;   
 }
 
 .status{
@@ -114,7 +50,7 @@ button {
     width: 300px;
 }
 
-.square-status{      
+.cap-status{      
     background-color: white;
     height: 20px;
     width: 20px;                   
@@ -125,12 +61,12 @@ button {
     border-radius: 50%;
 }
 
-.div-cores{
+.colors{
     display: inline-flex;
     margin-bottom: 50px;
 }
 
-.vagas {
+.spots {
   margin-top: 10px;
   margin-bottom: 50px;
 }
@@ -138,7 +74,7 @@ button {
     margin-top: 10px;
 }
 
-.container {
+.cap {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -149,10 +85,15 @@ button {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    height: 60px;
+    width: 60px;   
+    cursor: pointer;
+    border-radius: 50%; 
+    margin: 5px auto;
   }
   
   /* Hide the browser's default checkbox */
-  .container input {
+  .cap input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -172,12 +113,12 @@ button {
   }
   
   /* On mouse-over, add a grey background color */
-  .container:hover input ~ .checkmark {
+  .cap:hover input ~ .checkmark {
     /* background-color: green; */
   }
   
   /* When the checkbox is checked, add a blue background */
-  .container input:checked ~ .checkmark {
+  .cap input:checked ~ .checkmark {
     /* background-color: green; */
   }
   
@@ -189,12 +130,12 @@ button {
   }
   
   /* Show the checkmark when checked */
-  .container input:checked ~ .checkmark:after {
+  .cap input:checked ~ .checkmark:after {
     display: block;
   }
   
   /* Style the checkmark/indicator */
-  .container .checkmark:after {
+  .cap .checkmark:after {
     left: 12px;
     top: 6px;
     width: 10px;
@@ -207,7 +148,7 @@ button {
     margin: 20%;
   }
 
-  .container .chk-black:after {
+  .cap .chk-black:after {
     left: 12px;
     top: 6px;
     width: 10px;
@@ -218,4 +159,49 @@ button {
     -ms-transform: rotate(35deg);
     transform: rotate(35deg);
   }
+
+.green {
+    background-color: green !important;
+    accent-color: green;
+}
+
+.blue {
+    background-color: blue !important;
+    accent-color: blue;
+}
+
+.yellow {
+    background-color: yellow !important;
+    accent-color: yellow;
+}
+
+.red {
+    background-color: red !important;
+    accent-color: red;
+}
+
+.orange {
+    background-color: orange !important;
+    accent-color: orange;
+}
+
+.black {
+    background-color: black !important;
+    accent-color: black;
+}
+
+.pink {
+    background-color: pink !important;
+    accent-color: pink;
+}
+
+.purple {
+    background-color: purple !important;
+    accent-color: purple;
+}
+
+.greenyellow {
+    background-color: greenyellow !important;
+    accent-color: greenyellow;
+}
 
