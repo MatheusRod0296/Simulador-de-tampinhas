@@ -92,10 +92,13 @@ $(document).ready(function(){
         var indexOfSpot =  spotsPerColor.map( e => e.color).indexOf(sortedColor);
         
         let available = verifyAvailableTeam(indexOfSpot, spotsPerColor);
-        if(available){
+        if(available == 1){
             spotsPerColor[indexOfSpot].spotsFilled++;
             return indexOfSpot;
-        }else{
+        }else if(available == 2){
+            return recursiveSort(colorsChosen, spotsPerColor);
+        }
+        else if(available == 0){
             colorsChosen.splice(sort, 1);         
             return recursiveSort(colorsChosen, spotsPerColor);
         } 
@@ -106,12 +109,17 @@ $(document).ready(function(){
     }
 
     function verifyAvailableTeam(indexOfSpot, spotsPerColor, sortedColor){       
-        
-        if(indexOfSpot > -1 && spotsPerColor[indexOfSpot].spotsFilled < spotsPerColor[indexOfSpot].spotsAvailable){
-            return true;
+        if(spotsPerColor.every(spot => spot.spotsFilled > 0)){
+            if(indexOfSpot > -1 && spotsPerColor[indexOfSpot].spotsFilled < spotsPerColor[indexOfSpot].spotsAvailable){
+                return 1;
+            }
+        }else if(indexOfSpot > -1 && spotsPerColor[indexOfSpot].spotsFilled > 0){
+            return 2;
+        }else if(indexOfSpot > -1 && spotsPerColor[indexOfSpot].spotsFilled == 0){
+            return 1;
         }
-        
-        return false;       
+
+        return 0;       
     }
     
     function showSortedColor(cor){  
