@@ -45,6 +45,7 @@ $(document).ready(function(){
             .toggleClass('is-active', ENABLE_FIRST_ROUND_BALANCING)
             .attr('aria-pressed', ENABLE_FIRST_ROUND_BALANCING);
         $("#first-round-balancing-status").text(ENABLE_FIRST_ROUND_BALANCING ? 'Ativado' : 'Desativado');
+        $("#settings-indicator").toggleClass('is-active', ENABLE_FIRST_ROUND_BALANCING);
     });
 
     // Inline validation on blur
@@ -107,6 +108,7 @@ $(document).ready(function(){
             if ($('input[type=checkbox]:checked').length == _totalTeams && _totalTeams > 0){
                 buildSpotsPerColor(_colorsChosen, _restOfPlayers, _spotsPerColor, _totalPlayersPerTeam);
                 showTeamsOrder(_spotsPerColor);
+                $("#teams-list-section").appendTo(".draw-dashboard");
                 $("#draw-section").removeClass("hidden");
                 $("#teams-list-section").removeClass("hidden");
             }
@@ -262,13 +264,15 @@ $(document).ready(function(){
         spotsPerColor.forEach(spot => {
             const textClass = (spot.color == "yellow" || spot.color == "pink" || spot.color == "orange" || spot.color == "greenyellow") ? "text-black" : "text-white";
             const bgGradient = getColorGradient(spot.color);
-            $("#list-spots").append('<li id="li_'+ spot.color +'" class="list-group-item '+ textClass +'" style="background: '+ bgGradient +'">Vagas: 0/'+ spot.spotsAvailable +'</li>');
+            $("#list-spots").append('<li id="li_'+ spot.color +'" class="list-group-item '+ textClass +'" style="background: '+ bgGradient +'"><div class="team-progress-label"><span>Vagas</span><strong><span class="team-progress-filled">0</span>/'+ spot.spotsAvailable +'</strong></div><div class="team-progress-track"><span class="team-progress-bar" style="width: 0%"></span></div></li>');
         });
     }
 
     function updateSpotsAvailables(spotsPerColor){
-        $("#li_"+ spotsPerColor.color).empty();
-        $("#li_"+ spotsPerColor.color).append("Vagas:  " + spotsPerColor.spotsFilled +"/" + spotsPerColor.spotsAvailable);
+        const progress = (spotsPerColor.spotsFilled / spotsPerColor.spotsAvailable) * 100;
+        const $team = $("#li_"+ spotsPerColor.color);
+        $team.find(".team-progress-filled").text(spotsPerColor.spotsFilled);
+        $team.find(".team-progress-bar").css("width", progress + "%");
     } 
     
     function reset(){

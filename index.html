@@ -26,13 +26,15 @@
         <div class="container-app">
             <!-- Header -->
             <div class="header">
+                <img src="LOGO.png" alt="Costelinha FC" class="site-logo">
                 <button type="button" id="settings-menu-toggle" class="hamburger-button" aria-label="Abrir configurações do sorteio" aria-controls="settings-menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
+                    <i id="settings-indicator" class="settings-indicator is-active" aria-hidden="true"></i>
                 </button>
-                <h1 class="title">Simulador de Tampinhas</h1>
-                <p class="subtitle">Organize seus jogadores em times</p>
+                <h1 class="title">Sorteio Costelinha</h1>
+                
             </div>
 
             <!-- Draw Settings -->
@@ -127,6 +129,7 @@
 
             <!-- Draw Section -->
             <div id="draw-section" class="draw-section hidden">
+                <div class="draw-dashboard">
                 <div class="card card-draw">
                     <div class="card-header">
                         <h3 class="section-title">Sorteio</h3>
@@ -151,6 +154,7 @@
                     <div class="card-body">
                         <div id="status" class="status-list"></div>
                     </div>
+                </div>
                 </div>
             </div>
 

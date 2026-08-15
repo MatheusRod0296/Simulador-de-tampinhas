@@ -78,6 +78,16 @@ body {
   padding: 20px 0;
 }
 
+.site-logo {
+ 
+  top: 14px;
+  left: 0;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
 .hamburger-button {
   position: absolute;
   top: 20px;
@@ -123,6 +133,21 @@ body {
 
 .hamburger-button.is-active span:nth-child(3) {
   transform: translateY(-6px) rotate(-45deg);
+}
+
+.settings-indicator {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--surface);
+  border-radius: 50%;
+  background: transparent;
+}
+
+.settings-indicator.is-active {
+  background: var(--text-primary);
 }
 
 .title {
@@ -490,6 +515,20 @@ body {
    DRAW SECTION
    ============================================ */
 
+.draw-dashboard {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.draw-dashboard .card {
+  margin-bottom: 0;
+}
+
+.card-draw {
+  grid-column: 1 / -1;
+}
+
 .draw-container {
   display: flex;
   flex-direction: column;
@@ -584,6 +623,30 @@ body {
   box-shadow: var(--shadow-md);
 }
 
+.team-progress-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.team-progress-track {
+  width: 100%;
+  height: 7px;
+  margin-top: 10px;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.team-progress-bar {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.9);
+  transition: width 0.25s ease;
+}
+
 .text-white {
   color: var(--text-primary);
 }
@@ -634,6 +697,12 @@ body {
     font-size: 24px;
   }
 
+  .site-logo {
+    top: 20px;
+    width: 40px;
+    height: 40px;
+  }
+
   .card-header,
   .card-body {
     padding: 16px;
@@ -641,6 +710,10 @@ body {
 
   .section-title {
     font-size: 16px;
+  }
+
+  .draw-dashboard {
+    grid-template-columns: 1fr;
   }
 
   .colors-grid {
