@@ -1,4 +1,8 @@
 $(document).ready(function(){
+    // true: cada time recebe um jogador antes de qualquer segundo jogador ser sorteado.
+    // false: todos os times com vaga disponível têm a mesma chance em cada sorteio.
+    let ENABLE_FIRST_ROUND_BALANCING = true;
+
     var _totalTeams = 0;
     var _totalPlayersPerTeam = 0;
     var _totalPlayers = 0;
@@ -25,6 +29,22 @@ $(document).ready(function(){
         if (e.target === this) {
             $(this).addClass("hidden");
         }
+    });
+
+    $("#settings-menu-toggle").on('click', function() {
+        const isOpen = $("#settings-menu").toggleClass('hidden').hasClass('hidden') === false;
+        $(this)
+            .attr('aria-expanded', isOpen)
+            .attr('aria-label', isOpen ? 'Fechar configurações do sorteio' : 'Abrir configurações do sorteio')
+            .toggleClass('is-active', isOpen);
+    });
+
+    $("#first-round-balancing-toggle").on('click', function() {
+        ENABLE_FIRST_ROUND_BALANCING = !ENABLE_FIRST_ROUND_BALANCING;
+        $(this)
+            .toggleClass('is-active', ENABLE_FIRST_ROUND_BALANCING)
+            .attr('aria-pressed', ENABLE_FIRST_ROUND_BALANCING);
+        $("#first-round-balancing-status").text(ENABLE_FIRST_ROUND_BALANCING ? 'Ativado' : 'Desativado');
     });
 
     // Inline validation on blur
@@ -150,7 +170,7 @@ $(document).ready(function(){
          
         var indexOfSpot =  spotsPerColor.map( e => e.color).indexOf(sortedColor);
         
-        let available = verifyAvailableTeam(indexOfSpot, spotsPerColor);
+        let available = verifyAvailableTeam(indexOfSpot, spotsPerColor, ENABLE_FIRST_ROUND_BALANCING);
         if(available == 1){
             spotsPerColor[indexOfSpot].spotsFilled++;
             return indexOfSpot;
@@ -167,7 +187,13 @@ $(document).ready(function(){
         return sort(colorsChosen, spotsPerColor);
     }
 
-    function verifyAvailableTeam(indexOfSpot, spotsPerColor, sortedColor){       
+    function verifyAvailableTeam(indexOfSpot, spotsPerColor, shouldBalanceFirstRound){
+        if (!shouldBalanceFirstRound) {
+            return indexOfSpot > -1 && spotsPerColor[indexOfSpot].spotsFilled < spotsPerColor[indexOfSpot].spotsAvailable
+                ? 1
+                : 0;
+        }
+
         if(spotsPerColor.every(spot => spot.spotsFilled > 0)){
             if(indexOfSpot > -1 && spotsPerColor[indexOfSpot].spotsFilled < spotsPerColor[indexOfSpot].spotsAvailable){
                 return 1;
