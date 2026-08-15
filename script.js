@@ -1,7 +1,7 @@
 $(document).ready(function(){
     // true: cada time recebe um jogador antes de qualquer segundo jogador ser sorteado.
     // false: todos os times com vaga disponível têm a mesma chance em cada sorteio.
-    let ENABLE_FIRST_ROUND_BALANCING = true;
+    let ENABLE_FIRST_ROUND_BALANCING = false;
 
     var _totalTeams = 0;
     var _totalPlayersPerTeam = 0;
